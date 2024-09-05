@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-07-15 21:22:41
+/* Smarty version 4.3.4, created on 2024-07-29 20:48:13
   from 'C:\xampp7\htdocs\bareX\content\themes\default\templates\settings.market.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_66959321bf1672_49052177',
+  'unifunc' => 'content_66a8000dada492_17925827',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6824ef2655fe82d5063684109986449adad6a6ff' => 
     array (
       0 => 'C:\\xampp7\\htdocs\\bareX\\content\\themes\\default\\templates\\settings.market.tpl',
-      1 => 1688513374,
+      1 => 1722286052,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:_no_transactions.tpl' => 1,
   ),
 ),false)) {
-function content_66959321bf1672_49052177 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66a8000dada492_17925827 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp7\\htdocs\\bareX\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.number_format.php','function'=>'smarty_modifier_number_format',),));
 ?>
 <div class="card-header with-icon">

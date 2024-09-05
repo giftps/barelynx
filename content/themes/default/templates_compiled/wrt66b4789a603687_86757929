@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-08-08 12:45:18
+/* Smarty version 4.3.4, created on 2024-08-08 07:49:46
   from 'C:\xampp7\htdocs\bareX\content\themes\default\templates\_js_templates.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_66b4bdde118972_83760458',
+  'unifunc' => 'content_66b4789a5ff172_50458240',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'aac7fd2d44981d59d53ce6e48ad186e54e8e5bf7' => 
     array (
       0 => 'C:\\xampp7\\htdocs\\bareX\\content\\themes\\default\\templates\\_js_templates.tpl',
-      1 => 1723120969,
+      1 => 1723103371,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:__svg_icons.tpl' => 61,
   ),
 ),false)) {
-function content_66b4bdde118972_83760458 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66b4789a5ff172_50458240 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp7\\htdocs\\bareX\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.number_format.php','function'=>'smarty_modifier_number_format',),));
 ?>
 <!-- Toasts --><div class="toast-container p-3 bottom-0 start-0 fixed-bottom"></div><!-- Toasts --><!-- Modals --><div id="modal" class="modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"><div class="loader pt10 pb10"></div></div></div></div></div><?php echo '<script'; ?>
@@ -36,7 +36,7 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp7\\htdocs\\bareX\\v
  id="modal-confirm" type="text/template"><div class="modal-header"><h6 class="modal-title">{{title}}</h6><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><p>{{message}}</p></div><?php echo '</script'; ?>
 ><?php echo '<script'; ?>
  id="modal-verify" type="text/template"><div class="modal-body text-center" style="padding: 50px;"><?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"checkmark",'class'=>"main-icon mb20",'width'=>"60px",'height'=>"60px"), 0, false);
-?><h4>{{title}}</h4><form class="js_ajax-forms" data-url="payments/exodus_verify.php?ex_pay1=verify"><div class="modal-footer"><input type="text" value="{{message}}" name="ref" /><button type="submit" class="btn btn-primary"><?php echo __("Approve & Verify");?>
+?><h4>{{title}}</h4><form class="js_ajax-forms" data-url="payments/exodus.php?ex_pay1=verify"><div class="modal-footer"><input type="hidden" value="{{message}}" name="ref" /><button type="submit" class="btn btn-primary"><?php echo __("Verify");?>
 </button></div></form></div><?php echo '</script'; ?>
 ><?php echo '<script'; ?>
  id="modal-error" type="text/template"><div class="modal-body text-center" style="padding: 50px;"><?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"report",'class'=>"main-icon mb20",'width'=>"60px",'height'=>"60px"), 0, true);
@@ -570,7 +570,7 @@ echo __("Withdraw Monetization Credit");?>
 echo '<script'; ?>
  id="wallet-transfer" type="text/template"><div class="modal-header"><h6 class="modal-title"><?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"wallet_transfer",'class'=>"main-icon mr10",'width'=>"24px",'height'=>"24px"), 0, true);
 echo __("Send Money");?>
-</h6><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><form class="js_ajax-forms" method="post" data-url="payments/exodus.php?ex_pay=momo"><div class="modal-body"><?php if ($_smarty_tpl->tpl_vars['system']->value['wallet_max_transfer'] != "0") {?><div class="alert alert-info mb20"><i class="fas fa-info-circle mr5"></i><?php echo __("The maximum amount you can transfer is");?>
+</h6><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><form class="js_ajax-forms" data-url="payments/exodus.php?ex_pay=momo"><div class="modal-body"><?php if ($_smarty_tpl->tpl_vars['system']->value['wallet_max_transfer'] != "0") {?><div class="alert alert-info mb20"><i class="fas fa-info-circle mr5"></i><?php echo __("The maximum amount you can transfer is");?>
  <span class="badge rounded-pill badge-lg bg-light text-primary"><?php echo print_money($_smarty_tpl->tpl_vars['system']->value['wallet_max_transfer']);?>
 </span></div><?php }?><div class="form-group"><label class="form-label"><?php echo __("Amount");?>
 </label><div class="input-money <?php echo $_smarty_tpl->tpl_vars['system']->value['system_currency_dir'];?>

@@ -39,11 +39,27 @@
     </div>
   </script>
 
-  <script id="modal-success" type="text/template">
+  <script id="modal-confirm" type="text/template">
+    <div class="modal-header">
+      <h6 class="modal-title">{literal}{{title}}{/literal}</h6>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>{literal}{{message}}{/literal}</p>
+    </div>
+  </script>
+
+  <script id="modal-verify" type="text/template">
     <div class="modal-body text-center" style="padding: 50px;">
       {include file='__svg_icons.tpl' icon="checkmark" class="main-icon mb20" width="60px" height="60px"}
       <h4>{literal}{{title}}{/literal}</h4>
-      <p class="mt20">{literal}{{message}}{/literal}</p>
+        <form class="js_ajax-forms" data-url="payments/exodus_verify.php?ex_pay1=verify">
+          <div class="modal-footer">
+            <input type="text" value="{literal}{{message}}{/literal}" name="ref" />
+            <button type="submit" class="btn btn-primary">{__("Approve & Verify")}</button>
+          </div>
+        </form>
     </div>
   </script>
 
@@ -1449,6 +1465,283 @@
               <div class="input-money {$system['system_currency_dir']}">
                 <span>{$system['system_currency_symbol']}</span>
                 <input class="form-control" type="text" placeholder="0.00" min="1.00" max="1000" name="amount">
+              </div>
+            </div>
+            <!-- error -->
+            <div class="alert alert-danger mb0 mt10 x-hidden"></div>
+            <!-- error -->
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">{__("Continue")}</button>
+          </div>
+        </form>
+      </script>
+
+      <script id="wallet-withdraw-affiliates" type="text/template">
+        <div class="modal-header">
+          <h6 class="modal-title">
+            {include file='__svg_icons.tpl' icon="affiliates" class="main-icon mr10" width="24px" height="24px"}
+            {__("Withdraw Affiliates Credit")}
+          </h6>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form class="js_ajax-forms" data-url="payments/wallet.php?do=wallet_withdraw_affiliates">
+          <div class="modal-body">
+            <div class="form-group">
+              <label class="form-label" for="amount">{__("Your Affiliates Credit")}</label>
+              <div>
+                <span class="badge badge-lg bg-info">{print_money($user->_data['user_affiliate_balance']|number_format:2)}</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="amount">{__("Amount")}</label>
+              <div class="input-money {$system['system_currency_dir']}">
+                <span>{$system['system_currency_symbol']}</span>
+                <input class="form-control" type="text" placeholder="0.00" min="1.00" max="1000" name="amount">
+              </div>
+            </div>
+            <!-- error -->
+            <div class="alert alert-danger mb0 mt10 x-hidden"></div>
+            <!-- error -->
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">{__("Continue")}</button>
+          </div>
+        </form>
+      </script>
+
+      <script id="wallet-withdraw-points" type="text/template">
+        <div class="modal-header">
+          <h6 class="modal-title">
+            {include file='__svg_icons.tpl' icon="points" class="main-icon mr10" width="24px" height="24px"}
+            {__("Withdraw Points Credit")}
+          </h6>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form class="js_ajax-forms" data-url="payments/wallet.php?do=wallet_withdraw_points">
+          <div class="modal-body">
+            <div class="form-group">
+              <label class="form-label" for="amount">{__("Your Points Credit")}</label>
+              <div>
+                <span class="badge badge-lg bg-info">
+                  {if $system['points_per_currency'] == 0}0{else}{print_money((((1/$system['points_per_currency'])*$user->_data['user_points'])|number_format:2))}{/if}
+                </span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="amount">{__("Amount")}</label>
+              <div class="input-money {$system['system_currency_dir']}">
+                <span>{$system['system_currency_symbol']}</span>
+                <input class="form-control" type="text" placeholder="0.00" min="1.00" max="1000" name="amount">
+              </div>
+            </div>
+            <!-- error -->
+            <div class="alert alert-danger mb0 mt10 x-hidden"></div>
+            <!-- error -->
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">{__("Continue")}</button>
+          </div>
+        </form>
+      </script>
+
+      <script id="wallet-withdraw-market" type="text/template">
+        <div class="modal-header">
+          <h6 class="modal-title">
+            {include file='__svg_icons.tpl' icon="market" class="main-icon mr10" width="24px" height="24px"}
+            {__("Withdraw Market Credit")}
+          </h6>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form class="js_ajax-forms" data-url="payments/wallet.php?do=wallet_withdraw_market">
+          <div class="modal-body">
+            <div class="form-group">
+              <label class="form-label" for="amount">{__("Your Funding Credit")}</label>
+              <div>
+                <span class="badge badge-lg bg-info">{print_money($user->_data['user_market_balance']|number_format:2)}</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="amount">{__("Amount")}</label>
+              <div class="input-money {$system['system_currency_dir']}">
+                <span>{$system['system_currency_symbol']}</span>
+                <input class="form-control" type="text" placeholder="0.00" min="1.00" max="1000" name="amount">
+              </div>
+            </div>
+            <!-- error -->
+            <div class="alert alert-danger mb0 mt10 x-hidden"></div>
+            <!-- error -->
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">{__("Continue")}</button>
+          </div>
+        </form>
+      </script>
+
+      <script id="wallet-withdraw-funding" type="text/template">
+        <div class="modal-header">
+          <h6 class="modal-title">
+            {include file='__svg_icons.tpl' icon="funding" class="main-icon mr10" width="24px" height="24px"}
+            {__("Withdraw Funding Credit")}
+          </h6>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form class="js_ajax-forms" data-url="payments/wallet.php?do=wallet_withdraw_funding">
+          <div class="modal-body">
+            <div class="form-group">
+              <label class="form-label" for="amount">{__("Your Funding Credit")}</label>
+              <div>
+                <span class="badge badge-lg bg-info">{print_money($user->_data['user_funding_balance']|number_format:2)}</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="amount">{__("Amount")}</label>
+              <div class="input-money {$system['system_currency_dir']}">
+                <span>{$system['system_currency_symbol']}</span>
+                <input class="form-control" type="text" placeholder="0.00" min="1.00" max="1000" name="amount">
+              </div>
+            </div>
+            <!-- error -->
+            <div class="alert alert-danger mb0 mt10 x-hidden"></div>
+            <!-- error -->
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">{__("Continue")}</button>
+          </div>
+        </form>
+      </script>
+
+      <script id="wallet-withdraw-monetization" type="text/template">
+        <div class="modal-header">
+          <h6 class="modal-title">
+            {include file='__svg_icons.tpl' icon="monetization" class="main-icon mr10" width="24px" height="24px"}
+            {__("Withdraw Monetization Credit")}
+          </h6>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form class="js_ajax-forms" data-url="payments/wallet.php?do=wallet_withdraw_monetization">
+          <div class="modal-body">
+            <div class="form-group">
+              <label class="form-label" for="amount">{__("Your Monetization Credit")}</label>
+              <div>
+                <span class="badge badge-lg bg-info">{print_money($user->_data['user_monetization_balance']|number_format:2)}</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="amount">{__("Amount")}</label>
+              <div class="input-money {$system['system_currency_dir']}">
+                <span>{$system['system_currency_symbol']}</span>
+                <input class="form-control" type="text" placeholder="0.00" min="1.00" max="1000" name="amount">
+              </div>
+            </div>
+            <!-- error -->
+            <div class="alert alert-danger mb0 mt10 x-hidden"></div>
+            <!-- error -->
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">{__("Continue")}</button>
+          </div>
+        </form>
+      </script>
+    {/if}
+    <!-- Wallet -->
+
+    <!-- Wallet -->
+    {if $page == "momo"}
+      <script id="wallet-transfer" type="text/template">
+        <div class="modal-header">
+          <h6 class="modal-title">
+            {include file='__svg_icons.tpl' icon="wallet_transfer" class="main-icon mr10" width="24px" height="24px"}
+            {__("Send Money")}
+          </h6>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form class="js_ajax-forms" method="post" data-url="payments/exodus.php?ex_pay=momo">
+          <div class="modal-body">
+            {if $system['wallet_max_transfer'] != "0"}
+              <div class="alert alert-info mb20">
+                <i class="fas fa-info-circle mr5"></i>
+                {__("The maximum amount you can transfer is")} <span class="badge rounded-pill badge-lg bg-light text-primary">{print_money($system['wallet_max_transfer'])}</span>
+              </div>
+            {/if}
+            <div class="form-group">
+              <label class="form-label">{__("Amount")}</label>
+              <div class="input-money {$system['system_currency_dir']}">
+                <span>{$system['system_currency_symbol']}</span>
+                <input class="form-control" type="text" placeholder="0.00" min="1.00" max="1000" name="amount">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="send_to">{__("Select Network")}</label>
+              <div class="position-relative js_autocomplete">
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="network" id="inlineRadio1" value="airtel">
+                <label class="form-check-label" for="inlineRadio1">Airtel</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="network" id="inlineRadio2" value="mtn">
+                <label class="form-check-label" for="inlineRadio2">MTN</label>
+              </div>
+
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="send_to">{__("Your Number")}</label>
+              <div class="position-relative js_autocomplete_copy">
+                <input class="form-control" type="text" placeholder="{__('Search for user name or email')}" name="phone" id="send_to" autocomplete="off">
+                <input type="hidden" name="send_to_id">
+                <input type="hidden" name="exodus" value="momo">
+              </div>
+            </div>
+            <!-- error -->
+            <div class="alert alert-danger mb0 mt10 x-hidden"></div>
+            <!-- error -->
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">{__("Send")}</button>
+          </div>
+        </form>
+      </script>
+
+      <script id="wallet-replenish" type="text/template">
+        <div class="modal-header">
+          <h6 class="modal-title">
+            {include file='__svg_icons.tpl' icon="payments" class="main-icon mr10" width="24px" height="24px"}
+            {__("Replenish Credit")}
+          </h6>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form class="js_ajax-forms" data-url="payments/wallet.php?do=wallet_replenish">
+          <div class="modal-body">
+            <div class="form-group">
+              <label class="form-label" for="amount">{__("Amount")}</label>
+              <div class="input-money {$system['system_currency_dir']}">
+                <span>{$system['system_currency_symbol']}</span>
+                <input class="form-control" type="text" placeholder="0.00" min="1.00" max="1000" name="amount">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="send_to">{__("Select Network")}</label>
+              <div class="position-relative js_autocomplete">
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="network" id="inlineRadio1" value="airtel">
+                <label class="form-check-label" for="inlineRadio1">Airtel</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="network" id="inlineRadio2" value="mtn">
+                <label class="form-check-label" for="inlineRadio2">MTN</label>
+              </div>
+
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="send_to">{__("Mobile Money Number")}</label>
+              <div class="position-relative js_autocomplete_copy">
+                <input class="form-control" type="text" placeholder="{__('Search for user name or email')}" name="phone" id="send_to">
+                <input type="hidden" name="send_to_id">
+                <input type="hidden" name="exodus" value="momo">
               </div>
             </div>
             <!-- error -->

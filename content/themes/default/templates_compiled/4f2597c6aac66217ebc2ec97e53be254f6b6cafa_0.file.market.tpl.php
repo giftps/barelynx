@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-06-14 06:51:38
+/* Smarty version 4.3.4, created on 2024-07-29 21:37:17
   from 'C:\xampp7\htdocs\bareX\content\themes\default\templates\market.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_666be87a550c85_00400603',
+  'unifunc' => 'content_66a80b8de732e3_56936715',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4f2597c6aac66217ebc2ec97e53be254f6b6cafa' => 
     array (
       0 => 'C:\\xampp7\\htdocs\\bareX\\content\\themes\\default\\templates\\market.tpl',
-      1 => 1697974600,
+      1 => 1722288997,
       2 => 'file',
     ),
   ),
@@ -29,7 +29,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:_footer.tpl' => 1,
   ),
 ),false)) {
-function content_666be87a550c85_00400603 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66a80b8de732e3_56936715 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp7\\htdocs\\bareX\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.number_format.php','function'=>'smarty_modifier_number_format',),));
 $_smarty_tpl->_subTemplateRender('file:_head.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);

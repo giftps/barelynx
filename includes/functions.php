@@ -76,7 +76,7 @@ function check_system_requirements()
  */
 function get_licence_key($code)
 {
-	return 'xxxxxxxx';
+  return 'xxxxxxxx';
 }
 
 
@@ -87,7 +87,7 @@ function get_licence_key($code)
  */
 function valid_api_key()
 {
-	return true;
+  return true;
 }
 
 
@@ -5303,6 +5303,9 @@ function modal()
     case 'MESSAGE':
       return_json(array("callback" => "modal('#modal-message', {title: '" . $args[1] . "', message: '" . addslashes($args[2]) . "'})"));
       break;
+    case 'CONFIRM':
+      return_json(array("callback" => "modal('#modal-verify', {title: '" . $args[1] . "', message: '" . addslashes($args[2]) . "'})"));
+      break;
     case 'ERROR':
       return_json(array("callback" => "modal('#modal-error', {title: '" . $args[1] . "', message: '" . addslashes($args[2]) . "'})"));
       break;
@@ -5992,5 +5995,110 @@ function print_money($amount, $symbol = null, $dir = null)
     return $amount . $symbol;
   } else {
     return $symbol . $amount;
+  }
+}
+
+
+
+/**
+ * *EXODUS Payments
+ */
+
+//** momo stuff */
+
+function exo_momo_collections($data)
+{
+  $ref = date('YmdHis');
+  $curl = curl_init();
+
+  curl_setopt_array($curl, [
+    CURLOPT_URL => "https://api.lenco.co/access/v2/collections/mobile-money",
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 30,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "POST",
+    CURLOPT_POSTFIELDS => json_encode([
+      'operator' => $data['network'],
+      'bearer' => 'customer',
+      'amount' => $data['amount'],
+      'reference' => $ref,
+      'phone' => $data['phone'],
+      'country' => 'zm'
+    ]),
+    CURLOPT_HTTPHEADER => [
+      "Authorization: Bearer 20e8b5893f910dedc9c3673d7a9d819589a1d601eca2f06838a73e428bb0b943",
+      "accept: application/json",
+      "content-type: application/json"
+    ],
+  ]);
+
+  $response = curl_exec($curl);
+  $err = curl_error($curl);
+
+  curl_close($curl);
+
+  $_SESSION['amount__'] = $data['amount'];
+  if ($err) {
+    return "Error #:" . $err;
+  } else {
+    // return momo_status($ref);
+    return $ref;
+  }
+}
+
+
+function momo_status($data)
+{
+
+  $curl = curl_init();
+
+  curl_setopt_array($curl, [
+    CURLOPT_URL => "https://api.lenco.co/access/v2/collections/status/" . $data['ref'],
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 30,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "GET",
+    CURLOPT_HTTPHEADER => [
+      "Authorization: Bearer 20e8b5893f910dedc9c3673d7a9d819589a1d601eca2f06838a73e428bb0b943",
+      "accept: application/json"
+    ],
+  ]);
+
+  $response = curl_exec($curl);
+  $err = curl_error($curl);
+
+  curl_close($curl);
+
+  if ($err) {
+    return "cURL Error #:" . $err;
+  } else {
+    $res = json_decode($response, true);
+
+    // $status = $res['data']['status'];
+    // get DB
+    $conn = new mysqli('localhost', 'root', '', 'bare');
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
+    // get user
+    include_once(ABSPATH . './class-user.php');
+    $user = new User();
+
+    // if ($status != 'pending') {
+    $amount = intval($_SESSION['amount__']);
+    $uid = $user->_data['user_id'];
+    $conn->query("UPDATE users SET user_wallet_balance = user_wallet_balance + $amount WHERE user_id = '$uid' ") or _error("SQL_ERROR_THROWEN");
+    $user->wallet_set_transaction($user->_data['user_id'], 'recharge', 0, $_SESSION['amount__'], 'in');
+
+    $conn->close();
+    unset($_SESSION['amount__']);
+    return $response;
+    // } else {
+    //   return_json(array('error' => true, 'message' => __("Payment Declined: Please verify your information and try again, or try another payment method")));
+    // }
   }
 }

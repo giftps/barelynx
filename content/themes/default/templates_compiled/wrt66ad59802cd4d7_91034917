@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-08-08 12:45:18
+/* Smarty version 4.3.4, created on 2024-08-02 22:11:12
   from 'C:\xampp7\htdocs\bareX\content\themes\default\templates\_js_templates.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_66b4bdde118972_83760458',
+  'unifunc' => 'content_66ad59802c4f63_71492274',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'aac7fd2d44981d59d53ce6e48ad186e54e8e5bf7' => 
     array (
       0 => 'C:\\xampp7\\htdocs\\bareX\\content\\themes\\default\\templates\\_js_templates.tpl',
-      1 => 1723120969,
+      1 => 1722636397,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:__svg_icons.tpl' => 61,
   ),
 ),false)) {
-function content_66b4bdde118972_83760458 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66ad59802c4f63_71492274 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp7\\htdocs\\bareX\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.number_format.php','function'=>'smarty_modifier_number_format',),));
 ?>
 <!-- Toasts --><div class="toast-container p-3 bottom-0 start-0 fixed-bottom"></div><!-- Toasts --><!-- Modals --><div id="modal" class="modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"><div class="loader pt10 pb10"></div></div></div></div></div><?php echo '<script'; ?>
@@ -33,11 +33,8 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp7\\htdocs\\bareX\\v
 ><?php echo '<script'; ?>
  id="modal-message" type="text/template"><div class="modal-header"><h6 class="modal-title">{{title}}</h6><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><p>{{message}}</p></div><?php echo '</script'; ?>
 ><?php echo '<script'; ?>
- id="modal-confirm" type="text/template"><div class="modal-header"><h6 class="modal-title">{{title}}</h6><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><p>{{message}}</p></div><?php echo '</script'; ?>
-><?php echo '<script'; ?>
- id="modal-verify" type="text/template"><div class="modal-body text-center" style="padding: 50px;"><?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"checkmark",'class'=>"main-icon mb20",'width'=>"60px",'height'=>"60px"), 0, false);
-?><h4>{{title}}</h4><form class="js_ajax-forms" data-url="payments/exodus_verify.php?ex_pay1=verify"><div class="modal-footer"><input type="text" value="{{message}}" name="ref" /><button type="submit" class="btn btn-primary"><?php echo __("Approve & Verify");?>
-</button></div></form></div><?php echo '</script'; ?>
+ id="modal-success" type="text/template"><div class="modal-body text-center" style="padding: 50px;"><?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"checkmark",'class'=>"main-icon mb20",'width'=>"60px",'height'=>"60px"), 0, false);
+?><h4>{{title}}</h4><p class="mt20">{{message}}</p></div><?php echo '</script'; ?>
 ><?php echo '<script'; ?>
  id="modal-error" type="text/template"><div class="modal-body text-center" style="padding: 50px;"><?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"report",'class'=>"main-icon mb20",'width'=>"60px",'height'=>"60px"), 0, true);
 ?><h4>{{title}}</h4><p class="mt20">{{message}}</p></div><?php echo '</script'; ?>
@@ -570,14 +567,13 @@ echo __("Withdraw Monetization Credit");?>
 echo '<script'; ?>
  id="wallet-transfer" type="text/template"><div class="modal-header"><h6 class="modal-title"><?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"wallet_transfer",'class'=>"main-icon mr10",'width'=>"24px",'height'=>"24px"), 0, true);
 echo __("Send Money");?>
-</h6><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><form class="js_ajax-forms" method="post" data-url="payments/exodus.php?ex_pay=momo"><div class="modal-body"><?php if ($_smarty_tpl->tpl_vars['system']->value['wallet_max_transfer'] != "0") {?><div class="alert alert-info mb20"><i class="fas fa-info-circle mr5"></i><?php echo __("The maximum amount you can transfer is");?>
+</h6><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><form class="js_ajax-forms" data-url="payments/exodus.php?do=exo_momo"><div class="modal-body"><?php if ($_smarty_tpl->tpl_vars['system']->value['wallet_max_transfer'] != "0") {?><div class="alert alert-info mb20"><i class="fas fa-info-circle mr5"></i><?php echo __("The maximum amount you can transfer is");?>
  <span class="badge rounded-pill badge-lg bg-light text-primary"><?php echo print_money($_smarty_tpl->tpl_vars['system']->value['wallet_max_transfer']);?>
 </span></div><?php }?><div class="form-group"><label class="form-label"><?php echo __("Amount");?>
 </label><div class="input-money <?php echo $_smarty_tpl->tpl_vars['system']->value['system_currency_dir'];?>
 "><span><?php echo $_smarty_tpl->tpl_vars['system']->value['system_currency_symbol'];?>
-</span><input class="form-control" type="text" placeholder="0.00" min="1.00" max="1000" name="amount"></div></div><div class="form-group"><label class="form-label" for="send_to"><?php echo __("Select Network");?>
-</label><div class="position-relative js_autocomplete"><div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="network" id="inlineRadio1" value="airtel"><label class="form-check-label" for="inlineRadio1">Airtel</label></div><div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="network" id="inlineRadio2" value="mtn"><label class="form-check-label" for="inlineRadio2">MTN</label></div></div></div><div class="form-group"><label class="form-label" for="send_to"><?php echo __("Your Number");?>
-</label><div class="position-relative js_autocomplete_copy"><input class="form-control" type="text" placeholder="<?php echo __('Search for user name or email');?>
+</span><input class="form-control" type="text" placeholder="0.00" min="1.00" max="1000" name="amount"></div></div><div class="form-group"><label class="form-label" for="send_to"><?php echo __("Your Number");?>
+</label><div class="position-relative js_autocomplete"><input class="form-control" type="text" placeholder="<?php echo __('Search for user name or email');?>
 " name="phone" id="send_to" autocomplete="off"><input type="hidden" name="send_to_id"><input type="hidden" name="exodus" value="momo"></div></div><!-- error --><div class="alert alert-danger mb0 mt10 x-hidden"></div><!-- error --></div><div class="modal-footer"><button type="submit" class="btn btn-primary"><?php echo __("Send");?>
 </button></div></form><?php echo '</script'; ?>
 ><?php echo '<script'; ?>
@@ -586,10 +582,9 @@ echo __("Replenish Credit");?>
 </h6><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><form class="js_ajax-forms" data-url="payments/wallet.php?do=wallet_replenish"><div class="modal-body"><div class="form-group"><label class="form-label" for="amount"><?php echo __("Amount");?>
 </label><div class="input-money <?php echo $_smarty_tpl->tpl_vars['system']->value['system_currency_dir'];?>
 "><span><?php echo $_smarty_tpl->tpl_vars['system']->value['system_currency_symbol'];?>
-</span><input class="form-control" type="text" placeholder="0.00" min="1.00" max="1000" name="amount"></div></div><div class="form-group"><label class="form-label" for="send_to"><?php echo __("Select Network");?>
-</label><div class="position-relative js_autocomplete"><div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="network" id="inlineRadio1" value="airtel"><label class="form-check-label" for="inlineRadio1">Airtel</label></div><div class="form-check form-check-inline"><input class="form-check-input" type="radio" name="network" id="inlineRadio2" value="mtn"><label class="form-check-label" for="inlineRadio2">MTN</label></div></div></div><div class="form-group"><label class="form-label" for="send_to"><?php echo __("Mobile Money Number");?>
-</label><div class="position-relative js_autocomplete_copy"><input class="form-control" type="text" placeholder="<?php echo __('Search for user name or email');?>
-" name="phone" id="send_to"><input type="hidden" name="send_to_id"><input type="hidden" name="exodus" value="momo"></div></div><!-- error --><div class="alert alert-danger mb0 mt10 x-hidden"></div><!-- error --></div><div class="modal-footer"><button type="submit" class="btn btn-primary"><?php echo __("Continue");?>
+</span><input class="form-control" type="text" placeholder="0.00" min="1.00" max="1000" name="amount"></div></div><div class="form-group"><label class="form-label" for="send_to"><?php echo __("Mobile Money Number");?>
+</label><div class="position-relative js_autocomplete"><input class="form-control" type="text" placeholder="<?php echo __('Search for user name or email');?>
+" name="phone" id="send_to" autocomplete="off"><input type="hidden" name="send_to_id"><input type="hidden" name="exodus" value="momo"></div></div><!-- error --><div class="alert alert-danger mb0 mt10 x-hidden"></div><!-- error --></div><div class="modal-footer"><button type="submit" class="btn btn-primary"><?php echo __("Continue");?>
 </button></div></form><?php echo '</script'; ?>
 ><?php echo '<script'; ?>
  id="wallet-withdraw-affiliates" type="text/template"><div class="modal-header"><h6 class="modal-title"><?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"affiliates",'class'=>"main-icon mr10",'width'=>"24px",'height'=>"24px"), 0, true);

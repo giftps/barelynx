@@ -11,9 +11,9 @@
 require('bootloader.php');
 
 // check if wallet enabled
-if ($system['wallet_enabled']) {
-  _error(404);
-}
+// if ($system['wallet_enabled']) {
+//   _error(404);
+// }
 
 // user access
 user_access();
@@ -24,7 +24,7 @@ try {
   switch ($_GET['view']) {
     case '':
       // page header
-      page_header(__("Wallet") . ' | ' . __($system['system_title']));
+      page_header(__("MOMO Test") . ' | ' . __($system['system_title']));
 
       // get wallet notifications
       if (isset($_GET['wallet_transfer_succeed']) && isset($_SESSION['wallet_transfer_amount'])) {
@@ -120,4 +120,4 @@ try {
 }
 
 // page footer
-page_footer('wallet');
+page_footer('momo');

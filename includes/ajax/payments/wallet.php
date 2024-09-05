@@ -41,7 +41,7 @@ try {
         throw new Exception(__("Enter valid amount of money for example '50'"));
       }
 
-      // return
+      // return var_dump($_POST);
       modal("#payment", "{'handle': 'wallet', 'price': '" . $_POST['amount'] . "'}");
       break;
 
@@ -114,5 +114,5 @@ try {
       break;
   }
 } catch (Exception $e) {
-  return_json(array('error' => true, 'message' => $e->getMessage()));
+  return_json(array('error' => true, 'message' => "".$e->getMessage()));
 }
