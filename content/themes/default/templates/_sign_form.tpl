@@ -8,45 +8,30 @@
     </div>
     <div class="card-body pt0">
       {if isset($highlight)}<div class="alert alert-warning">{$highlight}</div>{/if}
-      <form class="js_ajax-forms" data-url="core/signin.php" method="POST">
-        <!-- username or email -->
+ 
+      <form>
         <div class="form-group">
-          <div class="input-group">
-            <span class="input-group-text bg-transparent"><i class="fas fa-envelope fa-fw"></i></span>
-            <input type="text" class="form-control" placeholder='{__("Email")} {__("or")} {__("Username")}' name="username_email" required>
-          </div>
+            <label for="email" class="login-label">Email or Username</label>
+            <input type="text" id="email" class="login-input" placeholder='{__("Email")} {__("or")} {__("Username")}' name="username_email" required>
         </div>
-        <!-- username or email -->
-        <!-- password -->
         <div class="form-group">
-          <div class="input-group">
-            <span class="input-group-text bg-transparent"><i class="fas fa-lock fa-fw"></i></span>
-            <input type="password" class="form-control" placeholder='{__("Password")}' name="password" required>
-          </div>
+            <label for="password" class="login-label">Password</label>
+            <input type="password" id="password" class="login-input" placeholder='{__("Password")}' name="password" required>
         </div>
-        <!-- password -->
-        <!-- remember me -->
-        <div class="row">
-          <div class="col-12 col-lg-6 mb10">
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" name="remember" id="remember">
-              <label class="form-check-label" for="remember">{__("Remember me")}</label>
-            </div>
-          </div>
-          <div class="col-12 col-lg-6 mb10">
-            <a class="float-end" href="{$system['system_url']}/reset">{__("Forgotten password?")}</a>
-          </div>
+        <div class="login-checkbox-group">
+            <input type="checkbox" id="remember" name="remember">
+            <label for="remember" class="login-checkbox-label">{__("Remember me")}</label>
         </div>
-        <!-- remember me -->
-        <!-- submit -->
-        <div class="form-group d-grid">
-          <button type="submit" class="btn btn-lg btn-primary">{__("Sign In")}</button>
+        <div class="login-forgot-password">
+            <a href="{$system['system_url']}/reset">{__("Forgotten password?")}</a>
         </div>
-        <!-- submit -->
+        <button type="submit" class="login-button">{__("Sign In")}</button>
+
         <!-- error -->
         <div class="alert alert-danger mt15 mb0 x-hidden"></div>
         <!-- error -->
       </form>
+
       {if $system['social_login_enabled']}
         {if $system['facebook_login_enabled'] || $system['google_login_enabled'] || $system['twitter_login_enabled'] || $system['linkedin_login_enabled'] || $system['vkontakte_login_enabled'] || $system['wordpress_login_enabled']}
           <div class="hr-heading mt5 mb10">
@@ -94,7 +79,7 @@
         {/if}
       {/if}
       {if $system['registration_enabled']}
-        <div class="mt30 text-center">
+        <div class="login-sign-up">
           {__("Don’t have an account?")} <a href="{$system['system_url']}/signup" class="js_toggle-panel text-link">{__("Sign Up")}</a>
         </div>
       {/if}
