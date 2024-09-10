@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-09-09 20:34:48
+/* Smarty version 4.3.4, created on 2024-09-09 22:45:18
   from 'C:\xampp\htdocs\barelynx\content\themes\default\templates\_sign_form.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_66df5be86972d7_38872056',
+  'unifunc' => 'content_66df7a7e3981c0_38106957',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '56af7b74c87b880be9ddeefc0e455fc005fdc4c8' => 
     array (
       0 => 'C:\\xampp\\htdocs\\barelynx\\content\\themes\\default\\templates\\_sign_form.tpl',
-      1 => 1725755398,
+      1 => 1725921902,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:__custom_fields.tpl' => 1,
   ),
 ),false)) {
-function content_66df5be86972d7_38872056 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66df7a7e3981c0_38106957 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="card card-register">
 
   <!-- signin -->
@@ -35,53 +35,38 @@ function content_66df5be86972d7_38872056 (Smarty_Internal_Template $_smarty_tpl)
     <div class="card-body pt0">
       <?php if ((isset($_smarty_tpl->tpl_vars['highlight']->value))) {?><div class="alert alert-warning"><?php echo $_smarty_tpl->tpl_vars['highlight']->value;?>
 </div><?php }?>
-      <form class="js_ajax-forms" data-url="core/signin.php" method="POST">
-        <!-- username or email -->
+ 
+      <form>
         <div class="form-group">
-          <div class="input-group">
-            <span class="input-group-text bg-transparent"><i class="fas fa-envelope fa-fw"></i></span>
-            <input type="text" class="form-control" placeholder='<?php echo __("Email");?>
+            <label for="email" class="login-label">Email or Username</label>
+            <input type="text" id="email" class="login-input" placeholder='<?php echo __("Email");?>
  <?php echo __("or");?>
  <?php echo __("Username");?>
 ' name="username_email" required>
-          </div>
         </div>
-        <!-- username or email -->
-        <!-- password -->
         <div class="form-group">
-          <div class="input-group">
-            <span class="input-group-text bg-transparent"><i class="fas fa-lock fa-fw"></i></span>
-            <input type="password" class="form-control" placeholder='<?php echo __("Password");?>
+            <label for="password" class="login-label">Password</label>
+            <input type="password" id="password" class="login-input" placeholder='<?php echo __("Password");?>
 ' name="password" required>
-          </div>
         </div>
-        <!-- password -->
-        <!-- remember me -->
-        <div class="row">
-          <div class="col-12 col-lg-6 mb10">
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" name="remember" id="remember">
-              <label class="form-check-label" for="remember"><?php echo __("Remember me");?>
+        <div class="login-checkbox-group">
+            <input type="checkbox" id="remember" name="remember">
+            <label for="remember" class="login-checkbox-label"><?php echo __("Remember me");?>
 </label>
-            </div>
-          </div>
-          <div class="col-12 col-lg-6 mb10">
-            <a class="float-end" href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+        </div>
+        <div class="login-forgot-password">
+            <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
 /reset"><?php echo __("Forgotten password?");?>
 </a>
-          </div>
         </div>
-        <!-- remember me -->
-        <!-- submit -->
-        <div class="form-group d-grid">
-          <button type="submit" class="btn btn-lg btn-primary"><?php echo __("Sign In");?>
+        <button type="submit" class="login-button"><?php echo __("Sign In");?>
 </button>
-        </div>
-        <!-- submit -->
+
         <!-- error -->
         <div class="alert alert-danger mt15 mb0 x-hidden"></div>
         <!-- error -->
       </form>
+
       <?php if ($_smarty_tpl->tpl_vars['system']->value['social_login_enabled']) {?>
         <?php if ($_smarty_tpl->tpl_vars['system']->value['facebook_login_enabled'] || $_smarty_tpl->tpl_vars['system']->value['google_login_enabled'] || $_smarty_tpl->tpl_vars['system']->value['twitter_login_enabled'] || $_smarty_tpl->tpl_vars['system']->value['linkedin_login_enabled'] || $_smarty_tpl->tpl_vars['system']->value['vkontakte_login_enabled'] || $_smarty_tpl->tpl_vars['system']->value['wordpress_login_enabled']) {?>
           <div class="hr-heading mt5 mb10">
@@ -144,7 +129,7 @@ echo __($_prefixVariable1);?>
         <?php }?>
       <?php }?>
       <?php if ($_smarty_tpl->tpl_vars['system']->value['registration_enabled']) {?>
-        <div class="mt30 text-center">
+        <div class="login-sign-up">
           <?php echo __("Don’t have an account?");?>
  <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
 /signup" class="js_toggle-panel text-link"><?php echo __("Sign Up");?>
