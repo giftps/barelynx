@@ -9,7 +9,7 @@
         <h5>{__("Welcome to")} {__($system['system_title'])}</h5>
         <h1>{__($system['system_description'])}</h1>
         <!-- welcome message -->
-
+        
         <!-- slider -->
         <div class="landing-slider d-none d-lg-block">
           <ul class="landing-slides">
@@ -53,29 +53,31 @@
         <!-- slider -->
       </div>
     </div>
-    <div class="col-lg-6">
+    
+    <div class="col-lg-6 landing-container">
       <div class="landing-form">
         {include file='_sign_form.tpl' do="in"}
         <div class="text-center">
           {if $system['play_store_badge_enabled']}
-            <a href="{$system['play_store_link']}" target="_blank">
-              {include file='__svg_icons.tpl' icon="playstore_badge" height="68px"}
-            </a>
+          <a href="{$system['play_store_link']}" target="_blank">
+            {include file='__svg_icons.tpl' icon="playstore_badge" height="68px"}
+          </a>
           {/if}
           {if $system['appgallery_badge_enabled']}
-            <a href="{$system['appgallery_store_link']}" target="_blank">
-              {include file='__svg_icons.tpl' icon="appgallery_badge" height="50px" class="mr10"}
-            </a>
+          <a href="{$system['appgallery_store_link']}" target="_blank">
+            {include file='__svg_icons.tpl' icon="appgallery_badge" height="50px" class="mr10"}
+          </a>
           {/if}
           {if $system['app_store_badge_enabled']}
-            <a href="{$system['app_store_link']}" target="_blank">
-              {include file='__svg_icons.tpl' icon="appstore_badge" height="50px"}
-            </a>
+          <a href="{$system['app_store_link']}" target="_blank">
+            {include file='__svg_icons.tpl' icon="appstore_badge" height="50px"}
+          </a>
           {/if}
         </div>
       </div>
-
-      {include file='_footer.links.tpl'}
+      <div class="footer-links">
+        {include file='_footer.links.tpl'}
+      </div>
     </div>
   </div>
 </div>

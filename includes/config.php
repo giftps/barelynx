@@ -4,7 +4,7 @@
     define("DB_PASSWORD", '');
     define("DB_HOST", 'localhost');
     define("DB_PORT", '3306');
-    define("SYS_URL", 'http://localhost/barex');
+    define("SYS_URL", 'http://localhost/barelynx');
     define("DEBUGGING", true);
     define("DEFAULT_LOCALE", 'en_us');
     define("LICENCE_KEY", 'xxxxxxxx');

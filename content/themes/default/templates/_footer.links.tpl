@@ -1,5 +1,5 @@
 <!-- footer links -->
-<div class="{if $system['fluid_design']}container-fluid{else}container{/if}">
+<footer class="{if $system['fluid_design']}container-fluid{else}container{/if}">
   <div class="row footer {if $page == 'index' && !$user->_logged_in}border-top-0{/if}">
     <div class="col-sm-6 dropdown">
       <span class="mr5">&copy; {date('Y')} {__($system['system_title'])}</span>
@@ -40,5 +40,5 @@
       {/if}
     </div>
   </div>
-</div>
+</footer>
 <!-- footer links -->
