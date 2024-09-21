@@ -10,7 +10,6 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body">
-          <div class="loader pt10 pb10"></div>
         </div>
       </div>
     </div>

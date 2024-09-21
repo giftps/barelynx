@@ -1,4 +1,27 @@
-/**
+<?php
+/* Smarty version 4.3.4, created on 2024-09-21 05:50:56
+  from 'C:\xampp\htdocs\barelynx\content\themes\default\css\style.css' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.3.4',
+  'unifunc' => 'content_66ee5ec05b67f7_51253501',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'bbeafa18a5bd4c1a47c838132b35878522d7a539' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\barelynx\\content\\themes\\default\\css\\style.css',
+      1 => 1726897855,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_66ee5ec05b67f7_51253501 (Smarty_Internal_Template $_smarty_tpl) {
+?>/**
  * Index:
  *
  * 01. BASIC
@@ -7918,10 +7941,6 @@ input#img-3:checked~.nav-dots label#img-dot-3 {
    width: 50%;
 }
 
-.separator{
-  
-}
-
 /* -- */
 
 /* card-register */
@@ -11745,4 +11764,5 @@ fieldset[disabled] .btn-whatsapp:hover {
   .sg-offcanvas.active .sg-offcanvas-mainbar {
     left: 100%;
   }
+}<?php }
 }
