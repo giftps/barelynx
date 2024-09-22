@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-09-22 15:47:52
+/* Smarty version 4.3.4, created on 2024-09-22 15:57:28
   from '/Applications/XAMPP/xamppfiles/htdocs/barelynx/content/themes/default/css/style.css' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_66f03c283737e5_95983062',
+  'unifunc' => 'content_66f03e680e0801_44835568',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5d9bfb0dad3635c7eafc44b1c8b88c0a3972471a' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/barelynx/content/themes/default/css/style.css',
-      1 => 1727020023,
+      1 => 1727020646,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_66f03c283737e5_95983062 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66f03e680e0801_44835568 (Smarty_Internal_Template $_smarty_tpl) {
 ?>/**
  * Index:
  *
@@ -7917,10 +7917,6 @@ input#img-3:checked~.nav-dots label#img-dot-3 {
 
 
 /* Auth page */
-
-.container-fluid{
-  height: 100vh;
-}
 
 .auth-container-fluid{
   display: flex;

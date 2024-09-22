@@ -7895,10 +7895,6 @@ input#img-3:checked~.nav-dots label#img-dot-3 {
 
 /* Auth page */
 
-.container-fluid{
-  height: 100vh;
-}
-
 .auth-container-fluid{
   display: flex;
   justify-content: center;
