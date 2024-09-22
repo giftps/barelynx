@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-09-21 05:35:14
+/* Smarty version 4.3.4, created on 2024-09-22 07:51:30
   from 'C:\xampp\htdocs\barelynx\content\themes\default\templates\index.landing.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_66ee5b126de668_86259292',
+  'unifunc' => 'content_66efcc825cfb22_05789368',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c9662ce6322aac852bca39821d9fe2d4f56112e0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\barelynx\\content\\themes\\default\\templates\\index.landing.tpl',
-      1 => 1726896913,
+      1 => 1726991486,
       2 => 'file',
     ),
   ),
@@ -23,24 +23,86 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:_footer.tpl' => 1,
   ),
 ),false)) {
-function content_66ee5b126de668_86259292 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66efcc825cfb22_05789368 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:_head.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 <div class="container-fluid">
-  <div class="auth-container">
-    <div class="auth-card">
-      <div class="auth-form">
-        <div class="auth-form-header">
-          <h1>Login</h1>
+  <div>
+    <h2 class="auth-title">Log in to access your account</h2>
+    <div class="container" id="container">
+      <div class="form-container sign-up-container">
+        <form class="auth-form" action="#">
+          <h1>Create Account</h1>
+          <div class="social-container">
+            <a href="#" class="social auth-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social auth-link"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social auth-link"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <span class="auth-span">or use your email for registration</span>
+          <input class="auth-input" type="text" placeholder="Name" />
+          <input class="auth-input" type="email" placeholder="Email" />
+          <input class="auth-input" type="password" placeholder="Password" />
+          <button class="auth-button">Sign Up</button>
+        </form>
+      </div>
+      <div class="form-container sign-in-container">
+        <form class="auth-form" action="#">
+          <h1>Sign in</h1>
+          <div class="social-container">
+            <a href="#" class="social auth-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social auth-link"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social auth-link"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <span class="auth-span">or use your account</span>
+          <input class="auth-input" type="email" placeholder="Email" />
+          <input class="auth-input" type="password" placeholder="Password" />
+          <a class="auth-link" href="#">Forgot your password?</a>
+          <button class="auth-button">Sign In</button>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Welcome Back!</h1>
+            <p class="auth-text">To keep connected with us please login with your personal info</p>
+            <button class="ghost auth-button" id="signIn">Sign In</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>Hello, Friend!</h1>
+            <p class="auth-text">Enter your personal details and start journey with us</p>
+            <button class="ghost auth-button" id="signUp">Sign Up</button>
+          </div>
         </div>
       </div>
-      <div>
-        side
-      </div>
     </div>
+    
+    <footer>
+      <p class="auth-text">
+        Created with <i class="fa fa-heart"></i> by
+        <a target="_blank" class="auth-link" href="https://florin-pop.com">Florin Pop</a>
+        - Read how I created this and how you can join the challenge
+        <a target="_blank" class="auth-link" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
+      </p>
+    </footer>
   </div>
+  <?php echo '<script'; ?>
+>
+    const signUpButton = document.getElementById("signUp");
+    const signInButton = document.getElementById("signIn");
+    const container = document.getElementById("container");
+    
+    signUpButton.addEventListener("click", () => {
+      container.classList.add("right-panel-active");
+    });
+    
+    signInButton.addEventListener("click", () => {
+      container.classList.remove("right-panel-active");
+    });
+    
+  <?php echo '</script'; ?>
+>
 </div>
 
 <?php $_smarty_tpl->_subTemplateRender('file:_footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
