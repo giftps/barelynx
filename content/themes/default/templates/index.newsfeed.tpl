@@ -28,7 +28,7 @@
                 <div class="card">
                   <div class="card-header bg-transparent border-bottom-0">
                     {* <strong class="text-muted">{__("Stories")}</strong> *}
-                    <strong class="text-muted"> Moment Strams </strong>
+                    <strong class="text-muted"> Moment  </strong>
                     {if $has_story}
                       <div class="float-end">
                         <button data-bs-toggle="tooltip" title='{__("Delete Your Story")}' class="btn btn-sm btn-icon btn-rounded btn-danger js_story-deleter">
