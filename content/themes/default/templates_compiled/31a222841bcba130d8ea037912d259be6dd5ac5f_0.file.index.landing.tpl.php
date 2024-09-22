@@ -1,10 +1,38 @@
-{include file='_head.tpl'}
-{include file='_header.tpl'}
+<?php
+/* Smarty version 4.3.4, created on 2024-09-22 15:47:52
+  from '/Applications/XAMPP/xamppfiles/htdocs/barelynx/content/themes/default/templates/index.landing.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.3.4',
+  'unifunc' => 'content_66f03c28320701_12615596',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '31a222841bcba130d8ea037912d259be6dd5ac5f' => 
+    array (
+      0 => '/Applications/XAMPP/xamppfiles/htdocs/barelynx/content/themes/default/templates/index.landing.tpl',
+      1 => 1727020068,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:_head.tpl' => 1,
+    'file:_header.tpl' => 1,
+    'file:_footer.tpl' => 1,
+  ),
+),false)) {
+function content_66f03c28320701_12615596 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender('file:_head.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+$_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 
 <div class="auth-container-fluid">
   <div>
     <div class="auth-error-container">
-      {if isset($highlight)}<div class="alert alert-warning">{$highlight}</div>{/if}
+      <?php if ((isset($_smarty_tpl->tpl_vars['highlight']->value))) {?><div class="alert alert-warning"><?php echo $_smarty_tpl->tpl_vars['highlight']->value;?>
+</div><?php }?>
     </div>
     <div class="container" id="container">
       <div class="form-container sign-up-container">
@@ -24,16 +52,22 @@
       </div>
       <div class="form-container sign-in-container">
         <form class="auth-form js_ajax-forms" data-url="core/signin.php" method="POST">
-          <h4 class="card-title">{__("Sign In to your Account")}</h4>
-          <p>{__("Welcome back! please enter your detail")}</p>
+          <h4 class="card-title"><?php echo __("Sign In to your Account");?>
+</h4>
+          <p><?php echo __("Welcome back! please enter your detail");?>
+</p>
           <div class="social-container">
             <a href="#" class="social auth-link"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social auth-link"><i class="fab fa-google-plus-g"></i></a>
             <a href="#" class="social auth-link"><i class="fab fa-linkedin-in"></i></a>
           </div>
           <span class="auth-span">or use your account</span>
-          <input class="auth-input"  placeholder='{__("Email")} {__("or")} {__("Username")}' name="username_email" required />
-          <input class="auth-input" type="password" placeholder='{__("Password")}' name="password" required />
+          <input class="auth-input"  placeholder='<?php echo __("Email");?>
+ <?php echo __("or");?>
+ <?php echo __("Username");?>
+' name="username_email" required />
+          <input class="auth-input" type="password" placeholder='<?php echo __("Password");?>
+' name="password" required />
           <a class="auth-link" href="#">Forgot your password?</a>
           <button class="auth-button">Sign In</button>
         </form>
@@ -63,7 +97,8 @@
       </p>
     </footer>
   </div>
-  <script>
+  <?php echo '<script'; ?>
+>
     const signUpButton = document.getElementById("signUp");
     const signInButton = document.getElementById("signIn");
     const container = document.getElementById("container");
@@ -76,7 +111,10 @@
       container.classList.remove("right-panel-active");
     });
     
-  </script>
+  <?php echo '</script'; ?>
+>
 </div>
 
-{include file='_footer.tpl'}
+<?php $_smarty_tpl->_subTemplateRender('file:_footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+}
+}

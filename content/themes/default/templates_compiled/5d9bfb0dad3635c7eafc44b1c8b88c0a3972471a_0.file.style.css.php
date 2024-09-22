@@ -1,4 +1,27 @@
-/**
+<?php
+/* Smarty version 4.3.4, created on 2024-09-22 15:47:52
+  from '/Applications/XAMPP/xamppfiles/htdocs/barelynx/content/themes/default/css/style.css' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.3.4',
+  'unifunc' => 'content_66f03c283737e5_95983062',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '5d9bfb0dad3635c7eafc44b1c8b88c0a3972471a' => 
+    array (
+      0 => '/Applications/XAMPP/xamppfiles/htdocs/barelynx/content/themes/default/css/style.css',
+      1 => 1727020023,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_66f03c283737e5_95983062 (Smarty_Internal_Template $_smarty_tpl) {
+?>/**
  * Index:
  *
  * 01. BASIC
@@ -11965,4 +11988,5 @@ fieldset[disabled] .btn-whatsapp:hover {
   .sg-offcanvas.active .sg-offcanvas-mainbar {
     left: 100%;
   }
+}<?php }
 }
